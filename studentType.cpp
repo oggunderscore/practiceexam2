@@ -2,6 +2,8 @@
 #include "personType.h"
 #include "studentType.h"
 
+int studentType::studentCount = 0;
+
 studentType::studentType()
 		:personType() {
 	gpa = 0.0;

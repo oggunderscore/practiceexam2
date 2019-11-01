@@ -23,6 +23,8 @@ class studentType: public personType {
 
         void print();
         bool equals(studentType);
+		
+		static int studentCount;
 };
 
 #endif

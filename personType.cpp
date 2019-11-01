@@ -1,7 +1,7 @@
 #include "header.h"
 #include "personType.h"
 
-
+/*
 void personType::setFather(personType *father1) {
     father = father1;
 }
@@ -16,10 +16,13 @@ personType personType::getFather() {
 personType personType::getMother() {
 	return *mother;
 }
+*/
+
+int personType::personCount = 0;
 
 personType::personType() {
-	mother = nullptr;
-	father = nullptr;
+	//mother = nullptr;
+	//father = nullptr;
 	fName = "EMPTY";
 	lName = "EMPTY";
 	address = "EMPTY";
@@ -29,8 +32,8 @@ personType::personType() {
 
 }
 personType::personType(string f, string l) {
-	mother = nullptr;
-	father = nullptr;
+	//mother = nullptr;
+	//father = nullptr;
 	fName = f;
 	lName = l;
 	address = "EMPTY";
@@ -40,8 +43,8 @@ personType::personType(string f, string l) {
 }
 personType::personType(string f, string l, string a, double h, string d,
 		char g) {
-	mother = nullptr;
-	father = nullptr;
+	//mother = nullptr;
+	//father = nullptr;
 	fName = f;
 	lName = l;
 	address = a;
@@ -94,6 +97,7 @@ void personType::print() {
 	cout.precision(2);
 	cout << "   ><><><>< Person ><><><><" << endl;
 
+	/*
 	if (mother != 0) {
 	    cout << " > Mother: " << mother->getFName() << " " << mother->getLName() << endl;
 	} else {
@@ -104,6 +108,7 @@ void personType::print() {
 	} else {
 	    cout << " > Father: UNKNOWN" << endl;
 	}
+	*/
 	
 	cout << " > " << "First Name: " << fName << endl;
 	cout << " > " << "Last Name: " << lName << endl;

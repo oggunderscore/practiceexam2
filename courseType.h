@@ -9,9 +9,9 @@ class courseType {
 		string sectionID, course, title, days, time, room;
 		int cap, enrolled;
 		bool open;
-		studentType *students[]; // Is this Correct with []?
+		studentType *students[30]; // Is this Correct with []?
 	public: 
-		courseType(string, string, string, string, string, string, int);
+		courseType(string, string, string, string, string, string, int, int, bool);
 		courseType(courseType &);
 		void setSectionID(string);
 		void setCourse(string);
@@ -38,6 +38,8 @@ class courseType {
 		void print();
 		
 		void printStudents(); // Also red text
+		
+		static int courseCount;
 		
 };
 

@@ -2,6 +2,8 @@
 #include "professorType.h"
 #include "personType.h"
 
+int professorType::professorCount = 0;
+
 //Constructors
 
 professorType::professorType() { // empty?

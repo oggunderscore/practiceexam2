@@ -26,6 +26,8 @@ class professorType: public personType {
 		//Functs
 		void print();
 		bool equals(professorType);
+		
+		static int professorCount;
 };
 
 #endif
