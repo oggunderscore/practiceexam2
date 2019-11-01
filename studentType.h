@@ -2,11 +2,14 @@
 #define studentType_H
 
 #include "personType.h"
+#include "courseType.h"
 
 class studentType: public personType {
 	private:
         string classification, id;
         double gpa;
+		int numCourses;
+		courseType *courses[10];
     public:
         studentType();
         studentType(string, string);
@@ -23,6 +26,8 @@ class studentType: public personType {
 
         void print();
         bool equals(studentType);
+		
+		void addCourse(courseType *);
 		
 		static int studentCount;
 };

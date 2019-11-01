@@ -1,5 +1,5 @@
-#ifndef serendipity_H
-#define serendipity_H
+#ifndef header_H
+#define header_H
 
 #include <iostream>
 #include <stdio.h>
@@ -16,6 +16,12 @@
 
 using namespace std;
 
+class collegeType;
+class courseType;
+class personType;
+class studentType;
+class professorType;
+
 void pause();
 void clear();
 
@@ -25,5 +31,10 @@ void printPersonCreateMenu();
 
 void createNewCourse(courseType *[]);
 void createNewPerson(personType *[]);
+
+void printAllPeople(personType *[]);
+void printAllCourses(courseType *[]);
+
+void assignCourse(courseType *[], personType *[]);
 
 #endif

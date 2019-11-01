@@ -1,6 +1,7 @@
 #include "header.h"
 #include "personType.h"
 #include "studentType.h"
+#include "courseType.h"
 
 int studentType::studentCount = 0;
 
@@ -64,4 +65,9 @@ bool studentType::equals(studentType comparator) {
 	} else {
 		return false;
 	}
+}
+
+void studentType::addCourse(courseType *course1) {
+	courses[numCourses] = new courseType(course1);
+	numCourses++;
 }

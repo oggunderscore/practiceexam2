@@ -6,8 +6,6 @@
 
 //get me out
 
-#include <limits>
-
 int main() {
 	
 	char c;
@@ -15,6 +13,7 @@ int main() {
 	
 	courseType *courses[10];
 	personType *persons[10];
+	collegeType *college;
 	
 	
 	do {
@@ -37,21 +36,22 @@ int main() {
 				validInput = true;
 				createNewPerson(persons);
 			} else if (c == '3') {
-				
+				//Assign Course to Student / Person
 				validInput = true;
-				
+				//assignCourse(courses, persons);
+				college->incrementCensus();
 			} else if (c == '4') {
 				
 				validInput = true;
 				
 			} else if (c == '5') {
-				
+				//Print people
 				validInput = true;
-				
+				printAllPeople(persons);
 			} else if (c == '6') {
-				
+				//Print Courses
 				validInput = true;
-				
+				printAllCourses(courses);
 			} else if (c == '7') {
 				
 				validInput = true;
