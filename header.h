@@ -19,4 +19,11 @@ using namespace std;
 void pause();
 void clear();
 
+void printMenu();
+void printCourseCreateMenu();
+void printPersonCreateMenu();
+
+void createNewCourse(courseType *[]);
+void createNewPerson(personType *[]);
+
 #endif

@@ -2,7 +2,7 @@
 #include "collegeType.h"
 
 void collegeType::setNameID(string name1) {
-	name1 = name;
+	name = name1;
 }
 
 string collegeType::getName() {

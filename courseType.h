@@ -9,7 +9,7 @@ class courseType {
 		string sectionID, course, title, days, time, room;
 		int cap, enrolled;
 		bool open;
-		studentType *students[30]; // Is this Correct with []?
+		studentType *students[30];
 	public: 
 		courseType(string, string, string, string, string, string, int, int, bool);
 		courseType(courseType &);
