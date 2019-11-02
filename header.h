@@ -38,6 +38,6 @@ void printAllStudents(studentType *[]);
 void printAllProfessors(professorType *[]);
 void printAllCourses(courseType *[]);
 
-void assignCourse(courseType *[], personType *[], collegeType *);
+void assignCourse(courseType *[], studentType *[], collegeType *);
 
 #endif

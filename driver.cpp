@@ -44,7 +44,7 @@ int main() {
 			} else if (c == '3') {
 				//Assign Course to Student / Person
 				validInput = true;
-				//assignCourse(courses, students, college);
+				assignCourse(courses, students, college);
 			} else if (c == '4') {
 				//Assign Instructor
 				validInput = true;
@@ -52,7 +52,6 @@ int main() {
 			} else if (c == '5') {
 				//Print people
 				validInput = true;
-				clear();
 				printAll(persons, students, professors);
 			} else if (c == '6') {
 				//Print Courses

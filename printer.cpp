@@ -5,6 +5,7 @@
 #include "professorType.h"
 
 void printAll(personType *persons[], studentType *students[], professorType *professors[]) {
+	clear();
 	if (personType::personCount != 0) {
 		printAllPeople(persons);
 	}
@@ -43,7 +44,7 @@ void printAllStudents(studentType *students[]) {
 
 void printAllProfessors(professorType *professors[]) {
 	
-	cout << "\n\t-- Person Database --\n" << endl;
+	cout << "\n\t-- Professor Database --\n" << endl;
 	
 	for (int x = 0; x < professorType::professorCount; x++) {
 		professors[x]->print();
