@@ -8,8 +8,7 @@ void createNewCourse(courseType *courses[]) {
 	
 	string tSectionID, tCourse, tTitle, tDays, tTime, tRoom;
 	int tCap;
-	
-	courseType::courseCount++;
+
 	
 	printCourseCreateMenu();
 	cout << " Section ID > ";
@@ -18,57 +17,38 @@ void createNewCourse(courseType *courses[]) {
 	
 	printCourseCreateMenu();
 	cout << " Course > ";
-	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	getline(cin, tCourse);
 	
 	printCourseCreateMenu();
 	cout << " Title > ";
-	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	getline(cin, tTitle);
 	
 	printCourseCreateMenu();
 	cout << " Days > ";
-	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	getline(cin, tDays);
 
 	printCourseCreateMenu();
 	cout << " Time > ";
-	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	getline(cin, tTime);
 	
 	printCourseCreateMenu();
 	cout << " Room > ";
-	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	getline(cin, tRoom);
 	
 	printCourseCreateMenu();
 	cout << " Capacity > ";
-	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	cin >> tCap;
 	
 	courses[courseType::courseCount] = new courseType(tSectionID, tCourse, tTitle, tDays, tTime, tRoom, tCap, 0, true);
 	
-	printCourseCreateMenu();
-	cout << "\t<+> Creation Successful <+>" << endl;
+	courseType::courseCount++;
 	
-	cout << tSectionID << endl;
-	cout << tCourse << endl;
-	cout << tTitle << endl;
-	cout << tDays << endl;
-	cout << tTime << endl;
-	cout << tRoom << endl;
-	cout << tCap << endl;
-	
-	courses[courseType::courseCount]->print();
-	
-	cin.ignore(1000, '\n');
-	pause();
-	
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
 
 
 
-void createNewPerson(personType *persons[]) {
+void createNewPerson(personType *persons[], studentType *students[], professorType *professors[]) {
 	
 	string tFName, tLName, tAddress, tDOB;
 	double tHeight;
@@ -80,15 +60,13 @@ void createNewPerson(personType *persons[]) {
 	
 	string tEmployeeID, tDepartment, tDegree;
 	
-	personType::personCount++;
-	
-	cin.ignore(1000, '\n');
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	
 	printPersonCreateMenu();
 	cout << " Enter Type of Person: ";
 	cin >> pType;
 	
-	cin.ignore(1000, '\n');
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	
 	printPersonCreateMenu();
 	cout << " First Name > ";
@@ -110,13 +88,13 @@ void createNewPerson(personType *persons[]) {
 	cout << " Height > ";
 	cin >> tHeight;
 	
-	cin.ignore(1000, '\n');
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	
 	printPersonCreateMenu();
 	cout << " Gender > ";
 	cin >> tGender;
 	
-	cin.ignore(1000, '\n');
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	
 	if (pType == 1) {
 		persons[personType::personCount] = new personType(tFName, tLName, tAddress, tHeight, tDOB, tGender);
@@ -129,21 +107,21 @@ void createNewPerson(personType *persons[]) {
 		cout << " ID > ";
 		cin >> tID;
 		
-		cin.ignore(1000, '\n');
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		
 		printPersonCreateMenu();
 		cout << " GPA > ";
 		cin >> tGPA;
 		
-		cin.ignore(1000, '\n');
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		
 		printPersonCreateMenu();
 		cout << " Classification > ";
 		cin >> tClassification;
 		
-		persons[personType::personCount] = new studentType(tFName, tLName, tAddress, tHeight, tDOB, tGender, tGPA, tClassification, tID);
+		students[studentType::studentCount] = new studentType(tFName, tLName, tAddress, tHeight, tDOB, tGender, tGPA, tClassification, tID);
 		
-		
+		studentType::studentCount++;
 		
 	} else if (pType == 3) {
 		
@@ -151,7 +129,7 @@ void createNewPerson(personType *persons[]) {
 		cout << " Employee ID > ";
 		cin >> tEmployeeID;
 		
-		cin.ignore(1000, '\n');
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		
 		printPersonCreateMenu();
 		cout << " Degree > ";
@@ -161,16 +139,10 @@ void createNewPerson(personType *persons[]) {
 		cout << " Department > ";
 		getline(cin, tDepartment);
 		
-		persons[personType::personCount] = new professorType(tEmployeeID, tDepartment, tDegree, tFName, tLName, tAddress, tHeight, tDOB, tGender);
+		professors[professorType::professorCount] = new professorType(tEmployeeID, tDepartment, tDegree, tFName, tLName, tAddress, tHeight, tDOB, tGender);
 		
-		
+		professorType::professorCount++;
 		
 	}
-	printPersonCreateMenu();
-	cout << "\t<+> Creation Successful <+>" << endl;
-	cout << endl;
-	persons[personType::personCount]->print();
-	
-	pause();
 	
 }

@@ -22,28 +22,28 @@ void printCourseAssignmentMenu(courseType *courses[]) {
 	cout << "\n  Input >> ";
 }
 
-void printStudentAssignmentMenu(personType *persons[]) {
+void printStudentAssignmentMenu(studentType *students[]) {
 	printCourseAssignmentHeader(1);
-	for (int x = 0; x < personType::personCount; x++) {
-		cout << " " << x+1 << " > " << persons[x]->getFName() << " " << persons[x]->getLName() << endl;
+	for (int x = 0; x < studentType::studentCount; x++) {
+		cout << " " << x+1 << " > " << students[x]->getFName() << " " << students[x]->getLName() << endl;
 	}
 	cout << "\n  Input >> ";
 }
 
-void assignCourse(courseType *courses[], personType *persons[]) {
+void assignCourse(courseType *courses[], studentType *students[], collegeType *college) {
 	
 	char c;
 	int selectedCourseIndex, selectedStudentIndex;
 	
 	printCourseAssignmentMenu(courses);
-	
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	cin >> c;
 	
 	if (c > 0 && c <= courseType::courseCount) {
 		selectedCourseIndex = (int) c;
 	}
 	
-	printStudentAssignmentMenu(persons);
+	printStudentAssignmentMenu(students);
 	
 	cin >> c;
 	
@@ -51,8 +51,9 @@ void assignCourse(courseType *courses[], personType *persons[]) {
 		selectedStudentIndex = (int) c;
 	}
 	
-	persons[selectedStudentIndex]->addCourse(courses[selectedCourseIndex]); // woo...
+	students[selectedStudentIndex]->addCourse(courses[selectedCourseIndex]); // woo...
 	
+	courses[0]->collegeIncCensus(college);
 	cout << "Course Set." << endl;
 	
 	

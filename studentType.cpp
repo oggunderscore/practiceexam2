@@ -5,6 +5,7 @@
 
 int studentType::studentCount = 0;
 
+
 studentType::studentType()
 		:personType() {
 	gpa = 0.0;
@@ -28,6 +29,7 @@ studentType::studentType(string fName1, string lName1, string a, double h, strin
 	gpa = gpa1;
 	classification = classification1;
 	id = id1;
+	numCourses = 0;
 }
 
 void studentType::setGPA(double x) {
@@ -55,6 +57,12 @@ void studentType::print() {
 	cout << " > Classification: " << getClassification() << endl;
 	cout << " > ID: " << getID() << endl;
 	cout << endl;
+	//Print courses
+	if (numCourses != 0) {
+		for (int x = 0; x < numCourses; x++) {
+			courses[x]->print();
+		}
+	}
 	
 }
 bool studentType::equals(studentType comparator) {
@@ -68,6 +76,7 @@ bool studentType::equals(studentType comparator) {
 }
 
 void studentType::addCourse(courseType *course1) {
-	courses[numCourses] = new courseType(course1);
+	//!!! Is this a deep or shallow copy? !!!
+	courses[numCourses] = new courseType(*course1);
 	numCourses++;
 }

@@ -11,8 +11,9 @@ class courseType {
 		bool open;
 		studentType *students[30];
 	public: 
+		courseType();
 		courseType(string, string, string, string, string, string, int, int, bool);
-		courseType(courseType &);
+		courseType( courseType &);
 		void setSectionID(string);
 		void setCourse(string);
 		void setTitle(string);
@@ -41,6 +42,7 @@ class courseType {
 		
 		static int courseCount;
 		
+		void collegeIncCensus(collegeType *college);
 };
 
 #endif

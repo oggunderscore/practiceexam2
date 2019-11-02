@@ -1,6 +1,8 @@
 #include "header.h"
 #include "personType.h"
 
+int personType::personCount = 0;
+
 /*
 void personType::setFather(personType *father1) {
     father = father1;
@@ -18,7 +20,6 @@ personType personType::getMother() {
 }
 */
 
-int personType::personCount = 0;
 
 personType::personType() {
 	//mother = nullptr;

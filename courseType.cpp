@@ -1,9 +1,14 @@
 #include "header.h"
 #include "courseType.h"
+#include "collegeType.h"
 
 int courseType::courseCount = 0;
 
 //Constructors
+courseType::courseType() {
+	
+}
+
 courseType::courseType(string sectionID1, string course1, string title1, string days1, string time1, string room1, int cap1, int enrolled1, bool open1) {
 	sectionID = sectionID1;
 	course = course1;
@@ -15,7 +20,7 @@ courseType::courseType(string sectionID1, string course1, string title1, string 
 	enrolled = enrolled1;
 	open = open1;
 }
-courseType::courseType(courseType &otherCourse) {
+courseType::courseType( courseType &otherCourse) {
 	sectionID = otherCourse.getSectionID();
 	course = otherCourse.getCourse();
 	title = otherCourse.getTitle();
@@ -89,4 +94,9 @@ void courseType::print() {
 }
 void courseType::printStudents() {
 	//Print Stuff
+}
+
+void courseType::collegeIncCensus(collegeType *college) {
+	college->incrementCensus();
+	cout << "INCREMENT CENSUS! " << college->getCensusNumber() << endl;
 }

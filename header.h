@@ -30,11 +30,14 @@ void printCourseCreateMenu();
 void printPersonCreateMenu();
 
 void createNewCourse(courseType *[]);
-void createNewPerson(personType *[]);
+void createNewPerson(personType *[], studentType *[], professorType *[]);
 
+void printAll(personType *[], studentType *[], professorType *[]);
 void printAllPeople(personType *[]);
+void printAllStudents(studentType *[]);
+void printAllProfessors(professorType *[]);
 void printAllCourses(courseType *[]);
 
-void assignCourse(courseType *[], personType *[]);
+void assignCourse(courseType *[], personType *[], collegeType *);
 
 #endif

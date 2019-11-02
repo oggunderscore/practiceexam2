@@ -1,6 +1,11 @@
 #include "header.h"
 #include "collegeType.h"
 
+collegeType::collegeType() {
+	name = "Saddleback College";
+	censusNumber = 0;
+}
+
 void collegeType::setNameID(string name1) {
 	name = name1;
 }

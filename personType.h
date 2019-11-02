@@ -41,6 +41,7 @@ class personType {
 		virtual void print();
 		
 		static int personCount;
+		
 };
 
 #endif
