@@ -3,6 +3,7 @@
 #include "personType.h"
 #include "studentType.h"
 #include "professorType.h"
+#include "collegeType.h"
 
 void printAll(personType *persons[], studentType *students[], professorType *professors[]) {
 	clear();
@@ -66,4 +67,12 @@ void printAllCourses(courseType *courses[]) {
 	}
 	pause();
 	
+}
+
+void printCensus(collegeType *college) {
+	clear();
+	cout << "\t-- College Census --\n" << endl;
+	cout << " Enrollments > " <<  college->getCensusNumber() << endl;
+	cout << endl;
+	pause();
 }

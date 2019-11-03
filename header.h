@@ -37,7 +37,9 @@ void printAllPeople(personType *[]);
 void printAllStudents(studentType *[]);
 void printAllProfessors(professorType *[]);
 void printAllCourses(courseType *[]);
+void printCensus(collegeType *);
 
-void assignCourse(courseType *[], studentType *[], collegeType *);
+void assignCourseToStudent(courseType *[], studentType *[], collegeType *);
+void assignProfessorToCourse(courseType *[], professorType *[], collegeType *);
 
 #endif

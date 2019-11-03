@@ -44,11 +44,11 @@ int main() {
 			} else if (c == '3') {
 				//Assign Course to Student / Person
 				validInput = true;
-				assignCourse(courses, students, college);
+				assignCourseToStudent(courses, students, college);
 			} else if (c == '4') {
 				//Assign Instructor
 				validInput = true;
-				
+				assignProfessorToCourse(courses, professors, college);
 			} else if (c == '5') {
 				//Print people
 				validInput = true;
@@ -60,7 +60,7 @@ int main() {
 			} else if (c == '7') {
 				//Print Census
 				validInput = true;
-				
+				printCensus(college);
 			} else if (c == '8') {
 				cout << "\nExiting Program..." << endl;
 				pause();

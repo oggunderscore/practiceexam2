@@ -1,6 +1,7 @@
 #include "header.h"
 #include "professorType.h"
 #include "personType.h"
+#include "courseType.h"
 
 int professorType::professorCount = 0;
 
@@ -12,6 +13,7 @@ professorType::professorType(string fName1, string lName1) :personType(fName1, l
 }
 professorType::professorType(string employeeID1, string department1, string degree1, string fName1, string lName1, string address1, double height1, string DOB1, char gender1)
 	:personType(fName1, lName1, address1, height1, DOB1, gender1) {
+	numCourses = 0;
 	employeeID = employeeID1;
 	department = department1;
 	degree = degree1;
@@ -51,7 +53,12 @@ void professorType::print() {
 	cout << " > " << "Department: " << department << endl;
 	cout << " > " << "Degree: " << degree << endl;
 	cout << endl;
-	
+	//Print courses
+	if (numCourses != 0) {
+		for (int x = 0; x < numCourses; x++) {
+			courses[x]->print();
+		}
+	}
 }
 
 
@@ -61,4 +68,10 @@ bool professorType::equals(professorType comparator) {
 	} else {
 		return false;
 	}
+}
+
+void professorType::addCourse(courseType *course1) {
+	//!!! Is this a deep or shallow copy? !!!
+	courses[numCourses] = new courseType(*course1);
+	numCourses++;
 }

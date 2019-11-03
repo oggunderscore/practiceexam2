@@ -6,6 +6,8 @@
 class professorType: public personType {
 	private: 
 		string employeeID, department, degree;
+		courseType *courses[10];
+		int numCourses;
 	public:
 		
 		//Constructors
@@ -26,6 +28,8 @@ class professorType: public personType {
 		//Functs
 		void print();
 		bool equals(professorType);
+		
+		void addCourse(courseType *);
 		
 		static int professorCount;
 };
