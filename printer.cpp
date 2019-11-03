@@ -5,7 +5,7 @@
 #include "professorType.h"
 #include "collegeType.h"
 
-void printAll(personType *persons[], studentType *students[], professorType *professors[]) {
+void printAll(personType *persons[], studentType *students[], professorType *professors[], courseType *courses[]) {
 	clear();
 	if (personType::personCount != 0) {
 		printAllPeople(persons);
@@ -14,7 +14,7 @@ void printAll(personType *persons[], studentType *students[], professorType *pro
 		printAllStudents(students);
 	}
 	if (professorType::professorCount != 0) {
-		printAllProfessors(professors);
+		printAllProfessors(professors, courses);
 	}
 	
 	if (personType::personCount == 0 && studentType::studentCount == 0 && professorType::professorCount == 0) {
@@ -43,12 +43,17 @@ void printAllStudents(studentType *students[]) {
 	}
 }
 
-void printAllProfessors(professorType *professors[]) {
+void printAllProfessors(professorType *professors[], courseType *courses[]) {
 	
 	cout << "\n\t-- Professor Database --\n" << endl;
 	
 	for (int x = 0; x < professorType::professorCount; x++) {
 		professors[x]->print();
+		cout << "\nStudents enrolled in course for professor above:\n" << endl;
+		for (int y = 0; y < professors[x]->getNumCourses(); y++) {
+			cout << "Accessing Professor " << x << " for students in course " << y << " out of " << professors[x]->getNumCourses() << endl;
+			professors[x]->printStudentsInCourse(courses[y]);
+		}
 	}
 }
 

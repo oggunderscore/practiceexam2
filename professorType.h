@@ -25,6 +25,8 @@ class professorType: public personType {
 		string getDepartment();
 		string getDegree();
 		
+		int getNumCourses();
+		
 		//Functs
 		void print();
 		bool equals(professorType);
@@ -32,6 +34,8 @@ class professorType: public personType {
 		void addCourse(courseType *);
 		
 		static int professorCount;
+		
+		void printStudentsInCourse(courseType *);
 };
 
 #endif

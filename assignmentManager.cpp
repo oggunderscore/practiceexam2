@@ -61,13 +61,18 @@ void assignCourseToStudent(courseType *courses[], studentType *students[], colle
 			selectedStudentIndex = c;
 			selectedStudentIndex--;
 		//}
-		cout << "INDEX: " << selectedCourseIndex << " & " << selectedStudentIndex << endl;
 		
-		students[selectedStudentIndex]->addCourse(courses[selectedCourseIndex]); // woo...
+		if (courses[selectedCourseIndex]->getCap() - courses[selectedCourseIndex]->getEnrolled() > 0 && courses[selectedCourseIndex]->getOpen() == true) {
+			//students[selectedStudentIndex]->addCourse(courses[selectedCourseIndex]); // woo...
+			courses[selectedCourseIndex]->addStudentToCourse(students[selectedStudentIndex]);
+			courses[selectedCourseIndex]->incEnrolled();
+			courses[0]->collegeIncCensus(college);
+		} else {
+			cout << "\nERROR: Course if full. (" << courses[selectedCourseIndex]->getEnrolled() << "/" << courses[selectedCourseIndex]->getCap() << ")\n" << endl;
+			pause();
+		}
 		
-		courses[0]->collegeIncCensus(college);
-		cout << "Course Set." << endl;
-		pause();
+		
 	} else {
 		cout << "\nERROR: No courses or students available.\n" << endl;
 		pause();
@@ -104,9 +109,7 @@ void assignProfessorToCourse(courseType *courses[], professorType *professors[],
 		professors[selectedProfessorIndex]->addCourse(courses[selectedCourseIndex]); // woo...
 		
 		// !!! Increase? !!!
-		courses[0]->collegeIncCensus(college);
-		cout << "Course Set." << endl;
-		pause();
+		//courses[0]->collegeIncCensus(college);
 	} else {
 		cout << "\nERROR: No courses or professors available.\n" << endl;
 		pause();

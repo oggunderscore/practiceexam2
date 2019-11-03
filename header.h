@@ -32,10 +32,10 @@ void printPersonCreateMenu();
 void createNewCourse(courseType *[]);
 void createNewPerson(personType *[], studentType *[], professorType *[]);
 
-void printAll(personType *[], studentType *[], professorType *[]);
+void printAll(personType *[], studentType *[], professorType *[], courseType *[]);
 void printAllPeople(personType *[]);
 void printAllStudents(studentType *[]);
-void printAllProfessors(professorType *[]);
+void printAllProfessors(professorType *[], courseType *[]);
 void printAllCourses(courseType *[]);
 void printCensus(collegeType *);
 

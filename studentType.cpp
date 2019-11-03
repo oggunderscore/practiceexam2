@@ -51,6 +51,11 @@ string studentType::getClassification() {
 	return classification;
 }
 
+void studentType::printFromCourse() {
+	cout << this->getFName();
+	cout << endl;
+}
+
 void studentType::print() {
 	personType::print();
 	cout << " > GPA: " << getGPA() << endl;
@@ -77,6 +82,7 @@ bool studentType::equals(studentType comparator) {
 
 void studentType::addCourse(courseType *course1) {
 	//!!! Is this a deep or shallow copy? !!!
-	courses[numCourses] = new courseType(*course1);
+	//courses[numCourses] = new courseType(*course1);
+	courses[numCourses] = course1;
 	numCourses++;
 }

@@ -3,6 +3,7 @@
 
 #include "header.h"
 #include "studentType.h"
+#include "professorType.h"
 
 class courseType {
 	private: 
@@ -10,10 +11,12 @@ class courseType {
 		int cap, enrolled;
 		bool open;
 		studentType *students[30];
+		void printStudents(); // Also red text
+		friend class professorType;
 	public: 
 		courseType();
 		courseType(string, string, string, string, string, string, int, int, bool);
-		courseType( courseType &);
+		courseType(courseType &);
 		void setSectionID(string);
 		void setCourse(string);
 		void setTitle(string);
@@ -32,17 +35,19 @@ class courseType {
 		int getEnrolled();
 		bool getOpen();
 		
-		bool addStudent(); // Red text what does it mean?
+		bool addStudent();
 		
-		void incEnrolled(); // Has - in UML what does it mean?
+		void incEnrolled();
 		
 		void print();
 		
-		void printStudents(); // Also red text
+		//void printStudents(); // Also red text
 		
 		static int courseCount;
 		
 		void collegeIncCensus(collegeType *college);
+		
+		void addStudentToCourse(studentType *student);
 };
 
 #endif

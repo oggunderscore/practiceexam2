@@ -1,6 +1,7 @@
 #include "header.h"
 #include "courseType.h"
 #include "collegeType.h"
+#include "studentType.h"
 
 int courseType::courseCount = 0;
 
@@ -94,9 +95,19 @@ void courseType::print() {
 }
 void courseType::printStudents() {
 	//Print Stuff
+	cout << "\t -- Students Enrolled in Course List --\n" << endl;
+	for (int x = 0; x < enrolled; x++) {
+		cout << "Printing student " << x << " out of " << enrolled << endl;
+		students[x]->printFromCourse();
+	}
 }
 
 void courseType::collegeIncCensus(collegeType *college) {
 	college->incrementCensus();
-	cout << "INCREMENT CENSUS! " << college->getCensusNumber() << endl;
+}
+
+
+void courseType::addStudentToCourse(studentType *student) {
+	student->courses[student->numCourses] = this;
+	student->numCourses++;
 }

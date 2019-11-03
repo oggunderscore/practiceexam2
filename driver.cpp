@@ -52,7 +52,7 @@ int main() {
 			} else if (c == '5') {
 				//Print people
 				validInput = true;
-				printAll(persons, students, professors);
+				printAll(persons, students, professors, courses);
 			} else if (c == '6') {
 				//Print Courses
 				validInput = true;

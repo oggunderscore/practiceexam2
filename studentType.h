@@ -10,6 +10,8 @@ class studentType: public personType {
         double gpa;
 		int numCourses;
 		courseType *courses[10];
+		void addCourse(courseType *);
+		friend class courseType;
     public:
         studentType();
         studentType(string, string);
@@ -27,9 +29,11 @@ class studentType: public personType {
         void print();
         bool equals(studentType);
 		
-		void addCourse(courseType *);
+		//void addCourse(courseType *);
 		
 		static int studentCount;
+		
+		void printFromCourse();
 };
 
 #endif

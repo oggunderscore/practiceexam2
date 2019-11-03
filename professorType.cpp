@@ -70,8 +70,19 @@ bool professorType::equals(professorType comparator) {
 	}
 }
 
+int professorType::getNumCourses() {
+	return numCourses;
+}
+
 void professorType::addCourse(courseType *course1) {
 	//!!! Is this a deep or shallow copy? !!!
 	courses[numCourses] = new courseType(*course1);
 	numCourses++;
+}
+
+void professorType::printStudentsInCourse(courseType *course) {
+	for (int x = 0; x < course->getEnrolled(); x++) {
+		cout << "Printing Course " << x << " out of " << course->getEnrolled() << endl;
+		course->printStudents();
+	}
 }
