@@ -85,7 +85,11 @@ bool courseType::getOpen() {
 
 //Other Functs
 bool courseType::addStudent() {
-	//??
+	if ((enrolled + 1) >= cap) {
+		return false;
+	} else {
+		return true;
+	}
 }
 void courseType::incEnrolled() {
 	enrolled++;
@@ -104,10 +108,8 @@ void courseType::print() {
 }
 void courseType::printStudents() {
 	//Print Stuff
-	cout << "\t -- Students Enrolled in Course List --\n" << endl;
 	for (int x = 0; x < enrolled; x++) {
-		cout << "Printing student " << x << " out of " << enrolled << endl;
-		cout << students[x]->getFName() << endl;
+	cout << "                                                                                                 \t> " << students[x]->getFName() << " " << students[x]->getLName() << endl;
 	}
 }
 
@@ -123,6 +125,7 @@ void courseType::collegeIncCensusM(collegeType *college) {
 
 
 void courseType::addStudentToCourse(studentType *student) {
-	student->courses[student->numCourses] = this;
-	student->numCourses++;
+	student->addCourse(this);
+	students[enrolled] = new studentType(*student);
+	//enrolled++;
 }

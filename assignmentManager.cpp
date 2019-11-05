@@ -17,7 +17,7 @@ void printCourseAssignmentHeader(int x) {
 void printCourseAssignmentMenu(courseType *courses[]) {
 	printCourseAssignmentHeader(0);
 	for (int x = 0; x < courseType::courseCount; x++) {
-		cout << " " << x+1 << " > " << courses[x]->getTitle() << endl;
+		cout << " " << x << " > " << courses[x]->getTitle() << endl;
 	}
 	cout << "\n  Input >> ";
 }
@@ -25,7 +25,7 @@ void printCourseAssignmentMenu(courseType *courses[]) {
 void printStudentAssignmentMenu(studentType *students[]) {
 	printCourseAssignmentHeader(1);
 	for (int x = 0; x < studentType::studentCount; x++) {
-		cout << " " << x+1 << " > " << students[x]->getFName() << " " << students[x]->getLName() << endl;
+		cout << " " << x << " > " << students[x]->getFName() << " " << students[x]->getLName() << endl;
 	}
 	cout << "\n  Input >> ";
 }
@@ -33,7 +33,7 @@ void printStudentAssignmentMenu(studentType *students[]) {
 void printProfessorAssignmentMenu(professorType *professors[]) {
 	printCourseAssignmentHeader(1);
 	for (int x = 0; x < professorType::professorCount; x++) {
-		cout << " " << x+1 << " > " << professors[x]->getFName() << " " << professors[x]->getLName() << endl;
+		cout << " " << x << " > " << professors[x]->getFName() << " " << professors[x]->getLName() << endl;
 	}
 	cout << "\n  Input >> ";
 }
@@ -48,22 +48,15 @@ void assignCourseToStudent(courseType *courses[], studentType *students[], colle
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		cin >> c;
 		
-		//if (c > 0 && c <= courseType::courseCount) {
-			selectedCourseIndex = c;
-			selectedCourseIndex--;
-		//}
+		selectedCourseIndex = c;
 		
 		printStudentAssignmentMenu(students);
 		
 		cin >> c;
 		
-		//if (c > 0 && c <= studentType::studentCount) {
-			selectedStudentIndex = c;
-			selectedStudentIndex--;
-		//}
+		selectedStudentIndex = c;
 		
 		if (courses[selectedCourseIndex]->getCap() - courses[selectedCourseIndex]->getEnrolled() > 0 && courses[selectedCourseIndex]->getOpen() == true) {
-			//students[selectedStudentIndex]->addCourse(courses[selectedCourseIndex]); // woo...
 			courses[selectedCourseIndex]->addStudentToCourse(students[selectedStudentIndex]);
 			courses[selectedCourseIndex]->incEnrolled();
 			courses[0]->collegeIncCensus(college);
@@ -76,7 +69,7 @@ void assignCourseToStudent(courseType *courses[], studentType *students[], colle
 			
 			
 		} else {
-			cout << "\nERROR: Course if full. (" << courses[selectedCourseIndex]->getEnrolled() << "/" << courses[selectedCourseIndex]->getCap() << ")\n" << endl;
+			cout << "\nERROR: Course is full. (" << courses[selectedCourseIndex]->getEnrolled() << "/" << courses[selectedCourseIndex]->getCap() << ")\n" << endl;
 			pause();
 		}
 		
@@ -99,25 +92,16 @@ void assignProfessorToCourse(courseType *courses[], professorType *professors[],
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		cin >> c;
 		
-		//if (c > 0 && c <= courseType::courseCount) {
-			selectedCourseIndex = c;
-			selectedCourseIndex--;
-		//}
+		selectedCourseIndex = c;
 		
 		printProfessorAssignmentMenu(professors);
 		
 		cin >> c;
 		
-		//if (c > 0 && c <= studentType::studentCount) {
-			selectedProfessorIndex = c;
-			selectedProfessorIndex--;
-		//}
-		cout << "INDEX: " << selectedCourseIndex << " & " << selectedProfessorIndex << endl;
-		
+		selectedProfessorIndex = c;
+				
 		professors[selectedProfessorIndex]->addCourse(courses[selectedCourseIndex]); // woo...
 		
-		// !!! Increase? !!!
-		//courses[0]->collegeIncCensus(college);
 	} else {
 		cout << "\nERROR: No courses or professors available.\n" << endl;
 		pause();

@@ -40,7 +40,7 @@ int main() {
 			} else if (c == '2') {
 				//Create New Person
 				validInput = true;
-				createNewPerson(persons, students, professors);
+				createNewPerson(persons, students, professors, college);
 				totalPeopleCount++;
 			} else if (c == '3') {
 				//Assign Course to Student / Person

@@ -62,7 +62,8 @@ void studentType::print() {
 	//Print courses
 	if (numCourses != 0) {
 		for (int x = 0; x < numCourses; x++) {
-			courses[x]->print();
+			cout << "\n                                                                                                 Section ID Course Name Title\n                                                                                                 ------------------------------" << endl;
+			cout << "                                                                                                 " << setw(10) << courses[x]->getSectionID() << " " << setw(15) << courses[x]->getCourse() << " " << setw(20) << courses[x]->getTitle() << "\n" << endl;
 		}
 	}
 	
@@ -78,8 +79,18 @@ bool studentType::equals(studentType comparator) {
 }
 
 void studentType::addCourse(courseType *course1) {
-	//!!! Is this a deep or shallow copy? !!!
-	//courses[numCourses] = new courseType(*course1);
-	courses[numCourses] = course1;
-	numCourses++;
+	if (course1->addStudent() == true) {
+		if (numCourses <= 1) {
+			//!!! Is this a deep or shallow copy? !!!
+			//courses[numCourses] = new courseType(*course1);
+			courses[numCourses] = course1;
+			numCourses++;
+		} else {
+			cout << "ERROR: STUDENT HAS TOO MANY COURSES!" << endl;
+			pause();
+		}
+	} else {
+		cout << "ERROR: COURSE IS FULL." << endl;
+		pause();
+	}
 }

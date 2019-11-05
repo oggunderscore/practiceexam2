@@ -53,8 +53,8 @@ void professorType::print() {
 	//Print courses
 	if (numCourses != 0) {
 		for (int x = 0; x < numCourses; x++) {
-			cout << "                                                                                       Section ID Course Name Title\n                                                                   ------------------------------" << endl;
-			cout << "                                                                                       " << setw(10) << courses[x]->getSectionID() << " " << setw(15) << courses[x]->getCourse() << " " << setw(20) << courses[x]->getTitle() << "\n" << endl;
+			cout << "\n                                                                                                 Section ID Course Name      Title\n                                                                                                 ------------------------------" << endl;
+			cout << "                                                                                                 " << setw(10) << courses[x]->getSectionID() << " " << setw(15) << courses[x]->getCourse() << " " << setw(20) << courses[x]->getTitle() << endl;
 		}
 	}
 }
@@ -79,8 +79,7 @@ void professorType::addCourse(courseType *course1) {
 }
 
 void professorType::printStudentsInCourse(courseType *course) {
-	for (int x = 0; x < course->getEnrolled(); x++) {
-		cout << "Printing Course " << x << " out of " << course->getEnrolled() << endl;
+	for (int x = 0; x < numCourses; x++) {
 		course->printStudents();
 	}
 }

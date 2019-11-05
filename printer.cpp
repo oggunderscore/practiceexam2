@@ -26,7 +26,7 @@ void printAll(personType *persons[], studentType *students[], professorType *pro
 
 void printAllPeople(personType *persons[]) {
 	
-	cout << "Name                         Address                                  Height DOB        Gender\n---------------------------------------------------------------------------------------------\n" << endl;
+	cout << "Name                         Address                                  Height DOB        Gender\n----------------------------------------------------------------------------------------------\n" << endl;
 
 	for (int x = 0; x < personType::personCount; x++) {
 		persons[x]->print();
@@ -50,9 +50,7 @@ void printAllProfessors(professorType *professors[], courseType *courses[]) {
 	for (int x = 0; x < professorType::professorCount; x++) {
 		cout << "\n                                                                                                 ID       Department             Degree\n                                                                                                 ------------------------------------------------" << endl; 
 		professors[x]->print();
-		cout << "\n                                                                                                      INSERT ENROLLED STUDENTS FROM PROFESSOR HERE." << endl;
 		for (int y = 0; y < professors[x]->getNumCourses(); y++) {
-			cout << "Accessing Professor " << x << " for students in course " << y << " out of " << professors[x]->getNumCourses() << endl;
 			professors[x]->printStudentsInCourse(courses[y]);
 		}
 	}
@@ -79,8 +77,11 @@ void printCensus(collegeType *college) {
 	clear();
 	cout << "\t-- " << college->getName() << " Census --\n" << endl;
 	cout << " Enrollments > " <<  college->getCensusNumber() << endl;
-	cout << " Enrollments (Male) > " <<  college->getCensusM() << endl;
 	cout << " Enrollments (Female) > " <<  college->getCensusF() << endl;
+	cout << " Enrollments (Male) > " <<  college->getCensusM() << endl;
+	cout << " Female Population > " <<  college->getFemales() << endl;
+	cout << " Male Population > " <<  college->getMales() << endl;
+
 	cout << endl;
 	pause();
 }

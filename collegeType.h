@@ -20,6 +20,12 @@ class collegeType {
 		static int getCensusNumber();
 		static int getCensusF();
 		static int getCensusM();
+		static int females;
+		static int males;
+		static void incFemales();
+		static void incMales();
+		static int getFemales();
+		static int getMales();
 		static void print();
 		
 		

@@ -3,6 +3,7 @@
 #include "personType.h"
 #include "studentType.h"
 #include "professorType.h"
+#include "collegeType.h"
 
 void createNewCourse(courseType *courses[]) {
 	
@@ -48,7 +49,7 @@ void createNewCourse(courseType *courses[]) {
 
 
 
-void createNewPerson(personType *persons[], studentType *students[], professorType *professors[]) {
+void createNewPerson(personType *persons[], studentType *students[], professorType *professors[], collegeType *college) {
 	
 	string tFName, tLName, tAddress, tDOB;
 	double tHeight;
@@ -93,6 +94,12 @@ void createNewPerson(personType *persons[], studentType *students[], professorTy
 	printPersonCreateMenu();
 	cout << " Gender > ";
 	cin >> tGender;
+	
+	if (tGender == 'F') {
+		college->incFemales();
+	} else if (tGender == 'M') {
+		college->incMales();
+	}
 	
 	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	

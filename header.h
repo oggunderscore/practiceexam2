@@ -30,7 +30,7 @@ void printCourseCreateMenu();
 void printPersonCreateMenu();
 
 void createNewCourse(courseType *[]);
-void createNewPerson(personType *[], studentType *[], professorType *[]);
+void createNewPerson(personType *[], studentType *[], professorType *[], collegeType *);
 
 void printAll(personType *[], studentType *[], professorType *[], courseType *[]);
 void printAllPeople(personType *[]);
