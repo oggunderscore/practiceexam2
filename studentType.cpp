@@ -58,10 +58,7 @@ void studentType::printFromCourse() {
 
 void studentType::print() {
 	personType::print();
-	cout << " > GPA: " << getGPA() << endl;
-	cout << " > Classification: " << getClassification() << endl;
-	cout << " > ID: " << getID() << endl;
-	cout << endl;
+	cout << left << "   " << setw(8) << id << " " << setw(10) << classification << "           " << setw(4) << gpa << "   " << setw(11) << numCourses << endl;
 	//Print courses
 	if (numCourses != 0) {
 		for (int x = 0; x < numCourses; x++) {

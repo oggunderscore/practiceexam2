@@ -96,26 +96,5 @@ char personType::getGender() {
 void personType::print() {
 	cout << fixed;
 	cout.precision(2);
-	cout << "   ><><><>< Person ><><><><" << endl;
-
-	/*
-	if (mother != 0) {
-	    cout << " > Mother: " << mother->getFName() << " " << mother->getLName() << endl;
-	} else {
-	    cout << " > Mother: UNKNOWN" << endl;
-	}
-	if (father != 0) {
-	    cout << " > Father: " << father->fName << " " << father->lName << endl;
-	} else {
-	    cout << " > Father: UNKNOWN" << endl;
-	}
-	*/
-	
-	cout << " > " << "First Name: " << fName << endl;
-	cout << " > " << "Last Name: " << lName << endl;
-	cout << " > " << "Address: " << address << endl;
-	cout << " > " << "Height: " << height << endl;
-	cout << " > " << "DOB: " << DOB << endl;
-	cout << " > " << "Gender: " << gender << endl;
-	cout << endl;
+	cout << left << setw(10) << fName << " " << setw(15) << lName << "   " << setw(40) << address << " " << setw(6) << height << " " << setw(10) << DOB << " " << setw(6) << gender;
 }

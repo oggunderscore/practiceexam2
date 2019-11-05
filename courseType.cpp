@@ -91,19 +91,34 @@ void courseType::incEnrolled() {
 	enrolled++;
 }
 void courseType::print() {
-	cout << sectionID << "\t " << course << "\t " << title << "\t " << days << "\t " << time << "\t " << cap << "\t " << enrolled << "\t " << open << endl;
+	
+	string status;
+	
+	if (open == 1) {
+		status = "Open";
+	} else if (open == 0) {
+		status = "Closed";
+	}
+
+	cout << left << setw(10) << sectionID << " " << setw(11) << course << " " << setw(30) << title << " " << setw(4) << days << " " << setw(20) << time << " " << setw(3) << cap << " " << setw(8) << enrolled << " " << setw(6) << status << endl;
 }
 void courseType::printStudents() {
 	//Print Stuff
 	cout << "\t -- Students Enrolled in Course List --\n" << endl;
 	for (int x = 0; x < enrolled; x++) {
 		cout << "Printing student " << x << " out of " << enrolled << endl;
-		students[x]->printFromCourse();
+		cout << students[x]->getFName() << endl;
 	}
 }
 
 void courseType::collegeIncCensus(collegeType *college) {
 	college->incrementCensus();
+}
+void courseType::collegeIncCensusF(collegeType *college) {
+	college->incrementF();
+}
+void courseType::collegeIncCensusM(collegeType *college) {
+	college->incrementM();
 }
 
 

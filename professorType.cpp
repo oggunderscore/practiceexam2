@@ -49,14 +49,12 @@ void professorType::print() {
 	cout << fixed;
 	cout.precision(2);
 	personType::print();
-	cout << " > " << "Employee ID: " << employeeID << endl;
-	cout << " > " << "Department: " << department << endl;
-	cout << " > " << "Degree: " << degree << endl;
-	cout << endl;
+	cout << left << "   " << setw(8) << employeeID << " " << setw(15) << department << " " << setw(20) << degree << endl;
 	//Print courses
 	if (numCourses != 0) {
 		for (int x = 0; x < numCourses; x++) {
-			courses[x]->print();
+			cout << "                                                                                       Section ID Course Name Title\n                                                                   ------------------------------" << endl;
+			cout << "                                                                                       " << setw(10) << courses[x]->getSectionID() << " " << setw(15) << courses[x]->getCourse() << " " << setw(20) << courses[x]->getTitle() << "\n" << endl;
 		}
 	}
 }

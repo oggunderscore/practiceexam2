@@ -99,7 +99,7 @@ void createNewPerson(personType *persons[], studentType *students[], professorTy
 	if (pType == 1) {
 		persons[personType::personCount] = new personType(tFName, tLName, tAddress, tHeight, tDOB, tGender);
 		
-		
+		personType::personCount++;
 		
 	} else if (pType == 2) {
 		
@@ -126,7 +126,7 @@ void createNewPerson(personType *persons[], studentType *students[], professorTy
 	} else if (pType == 3) {
 		
 		printPersonCreateMenu();
-		cout << " Employee ID > ";
+		cout << " Employee ID > "; 
 		cin >> tEmployeeID;
 		
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');

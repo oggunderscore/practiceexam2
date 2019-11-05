@@ -3,6 +3,7 @@
 #include "personType.h"
 #include "studentType.h"
 #include "professorType.h"
+#include "collegeType.h"
 
 //get me out
 
@@ -18,7 +19,7 @@ int main() {
 	studentType *students[10];
 	professorType *professors[10];
 	collegeType *college;
-	//college = new collegeType();
+	college->setNameID("Saddleback College");
 	
 	
 	do {

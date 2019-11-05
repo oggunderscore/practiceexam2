@@ -46,6 +46,8 @@ class courseType {
 		static int courseCount;
 		
 		void collegeIncCensus(collegeType *college);
+		void collegeIncCensusF(collegeType *college);
+		void collegeIncCensusM(collegeType *college);
 		
 		void addStudentToCourse(studentType *student);
 };

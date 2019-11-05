@@ -67,6 +67,14 @@ void assignCourseToStudent(courseType *courses[], studentType *students[], colle
 			courses[selectedCourseIndex]->addStudentToCourse(students[selectedStudentIndex]);
 			courses[selectedCourseIndex]->incEnrolled();
 			courses[0]->collegeIncCensus(college);
+			
+			if (students[selectedStudentIndex]->getGender() == 'F') {
+				courses[0]->collegeIncCensusF(college);
+			} else if (students[selectedStudentIndex]->getGender() == 'M') {
+				courses[0]->collegeIncCensusM(college);
+			}
+			
+			
 		} else {
 			cout << "\nERROR: Course if full. (" << courses[selectedCourseIndex]->getEnrolled() << "/" << courses[selectedCourseIndex]->getCap() << ")\n" << endl;
 			pause();

@@ -6,16 +6,22 @@
 
 class collegeType {
 	private: 
-		string name;
-		int censusNumber;
-		void incrementCensus();
+		static string name;
+		static int censusNumber;
+		static int fNumber;
+		static int mNumber;
+		static void incrementCensus();
+		static void incrementF();
+		static void incrementM();
 		friend class courseType;
 	public: 
-		collegeType();
-		void setNameID(string);
-		string getName();
-		int getCensusNumber();
-		void print();
+		static void setNameID(string);
+		static string getName();
+		static int getCensusNumber();
+		static int getCensusF();
+		static int getCensusM();
+		static void print();
+		
 		
 		
 };

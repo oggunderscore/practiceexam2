@@ -1,10 +1,11 @@
 #include "header.h"
 #include "collegeType.h"
 
-collegeType::collegeType() {
-	name = "Saddleback College";
-	censusNumber = 0;
-}
+string collegeType::name;
+int collegeType::censusNumber = 0;
+int collegeType::fNumber = 0;
+int collegeType::mNumber = 0;
+
 
 void collegeType::setNameID(string name1) {
 	name = name1;
@@ -16,10 +17,22 @@ string collegeType::getName() {
 int collegeType::getCensusNumber() {
 	return censusNumber;
 }
+int collegeType::getCensusF() {
+	return fNumber;
+}
+int collegeType::getCensusM() {
+	return mNumber;
+}
 
 void collegeType::print() {
 	cout << "College Name > \"" << name << "\"\n > Students: " << censusNumber << endl;
 }
 void collegeType::incrementCensus() {
 	censusNumber++;
+}
+void collegeType::incrementF() {
+	fNumber++;
+}
+void collegeType::incrementM() {
+	mNumber++;
 }

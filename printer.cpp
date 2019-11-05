@@ -26,30 +26,31 @@ void printAll(personType *persons[], studentType *students[], professorType *pro
 
 void printAllPeople(personType *persons[]) {
 	
-	cout << "\n\t-- Person Database --\n" << endl;
+	cout << "Name                         Address                                  Height DOB        Gender\n---------------------------------------------------------------------------------------------\n" << endl;
 
 	for (int x = 0; x < personType::personCount; x++) {
 		persons[x]->print();
+		cout << endl;
 	}
 	
 }
 
 void printAllStudents(studentType *students[]) {
 	
-	cout << "\n\t-- Student Database --\n" << endl;
 	
 	for (int x = 0; x < studentType::studentCount; x++) {
+		cout << "\n                                                                                                 ID       Classification       GPA    Course Load\n                                                                                                 ------------------------------------------------" << endl; 
 		students[x]->print();
 	}
 }
 
 void printAllProfessors(professorType *professors[], courseType *courses[]) {
 	
-	cout << "\n\t-- Professor Database --\n" << endl;
 	
 	for (int x = 0; x < professorType::professorCount; x++) {
+		cout << "\n                                                                                                 ID       Department             Degree\n                                                                                                 ------------------------------------------------" << endl; 
 		professors[x]->print();
-		cout << "\nStudents enrolled in course for professor above:\n" << endl;
+		cout << "\n                                                                                                      INSERT ENROLLED STUDENTS FROM PROFESSOR HERE." << endl;
 		for (int y = 0; y < professors[x]->getNumCourses(); y++) {
 			cout << "Accessing Professor " << x << " for students in course " << y << " out of " << professors[x]->getNumCourses() << endl;
 			professors[x]->printStudentsInCourse(courses[y]);
@@ -60,9 +61,8 @@ void printAllProfessors(professorType *professors[], courseType *courses[]) {
 void printAllCourses(courseType *courses[]) {
 	
 	clear();
-	cout << "\t-- Course Database --\n" << endl;
 	
-	
+	cout << "Section ID Course Name Title                          Days Time                 Cap Enrolled Status\n---------------------------------------------------------------------------------------------------" << endl;
 	if (courseType::courseCount != 0) {
 		for (int x = 0; x < courseType::courseCount; x++) {
 			courses[x]->print();
@@ -70,14 +70,17 @@ void printAllCourses(courseType *courses[]) {
 	} else {
 		cout << "\nERROR: There are 0 instances in this database!\n" << endl;
 	}
+	cout << endl;
 	pause();
 	
 }
 
 void printCensus(collegeType *college) {
 	clear();
-	cout << "\t-- College Census --\n" << endl;
+	cout << "\t-- " << college->getName() << " Census --\n" << endl;
 	cout << " Enrollments > " <<  college->getCensusNumber() << endl;
+	cout << " Enrollments (Male) > " <<  college->getCensusM() << endl;
+	cout << " Enrollments (Female) > " <<  college->getCensusF() << endl;
 	cout << endl;
 	pause();
 }
