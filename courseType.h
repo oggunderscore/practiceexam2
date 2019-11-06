@@ -11,7 +11,7 @@ class courseType {
 		int cap, enrolled;
 		bool open;
 		studentType *students[30];
-		void printStudents(); // Also red text
+		void printStudents();
 		friend class professorType;
 	public: 
 		courseType();
@@ -50,6 +50,8 @@ class courseType {
 		void collegeIncCensusM(collegeType *college);
 		
 		void addStudentToCourse(studentType *student);
+		
+		void printStudent(int);
 };
 
 #endif

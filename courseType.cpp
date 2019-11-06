@@ -109,8 +109,11 @@ void courseType::print() {
 void courseType::printStudents() {
 	//Print Stuff
 	for (int x = 0; x < enrolled; x++) {
-	cout << "                                                                                                 \t> " << students[x]->getFName() << " " << students[x]->getLName() << endl;
+		cout << "                                                                                                 \t> " << students[x]->getFName() << " " << students[x]->getLName() << endl;
 	}
+}
+void courseType::printStudent(int x) {
+	cout << "                                                                                                 \t> " << students[x]->getFName() << " " << students[x]->getLName() << endl;
 }
 
 void courseType::collegeIncCensus(collegeType *college) {

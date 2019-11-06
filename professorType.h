@@ -35,7 +35,6 @@ class professorType: public personType {
 		
 		static int professorCount;
 		
-		void printStudentsInCourse(courseType *);
 };
 
 #endif

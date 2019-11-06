@@ -51,10 +51,19 @@ void professorType::print() {
 	personType::print();
 	cout << left << "   " << setw(8) << employeeID << " " << setw(15) << department << " " << setw(20) << degree << endl;
 	//Print courses
+	cout << "\n                                                                                                 Section ID Course Name     Title                      Days  Time                Cap Enrolled\n                                                                                                 ------------------------------------------------" << endl;
 	if (numCourses != 0) {
 		for (int x = 0; x < numCourses; x++) {
-			cout << "\n                                                                                                 Section ID Course Name      Title\n                                                                                                 ------------------------------" << endl;
-			cout << "                                                                                                 " << setw(10) << courses[x]->getSectionID() << " " << setw(15) << courses[x]->getCourse() << " " << setw(20) << courses[x]->getTitle() << endl;
+			string status;
+			if (courses[x]->getOpen() == true)
+				status = true;
+			else 
+				status = false;
+			cout << "                                                                                                 " << left << setw(10) << courses[x]->getSectionID() << " " << setw(11) << courses[x]->getCourse() << " " << setw(30) << courses[x]->getTitle() << " " << setw(4) << courses[x]->getDays() << " " << setw(20) << courses[x]->getTime() << " " << setw(3) << courses[x]->getCap() << " " << setw(8) << courses[x]->getEnrolled() << " " << setw(6) << status << endl;
+			//cout << "                                                                                                 " << setw(10) << courses[x]->getSectionID() << " " << setw(15) << courses[x]->getCourse() << " " << setw(20) << courses[x]->getTitle() << endl;
+			for (int y = 0; y < courses[x]->getEnrolled(); y++) {
+				courses[x]->printStudent(y);
+			}
 		}
 	}
 }
@@ -73,13 +82,6 @@ int professorType::getNumCourses() {
 }
 
 void professorType::addCourse(courseType *course1) {
-	//!!! Is this a deep or shallow copy? !!!
-	courses[numCourses] = new courseType(*course1);
+	courses[numCourses] = course1;
 	numCourses++;
-}
-
-void professorType::printStudentsInCourse(courseType *course) {
-	for (int x = 0; x < numCourses; x++) {
-		course->printStudents();
-	}
 }

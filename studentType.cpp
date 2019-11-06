@@ -61,9 +61,15 @@ void studentType::print() {
 	cout << left << "   " << setw(8) << id << " " << setw(10) << classification << "           " << setw(4) << gpa << "   " << setw(11) << numCourses << endl;
 	//Print courses
 	if (numCourses != 0) {
+		cout << "\n                                                                                                 Section ID Course Name      Title                     Days  Time                Cap Enrolled\n                                                                                                 ------------------------------------------------" << endl;
 		for (int x = 0; x < numCourses; x++) {
-			cout << "\n                                                                                                 Section ID Course Name Title\n                                                                                                 ------------------------------" << endl;
-			cout << "                                                                                                 " << setw(10) << courses[x]->getSectionID() << " " << setw(15) << courses[x]->getCourse() << " " << setw(20) << courses[x]->getTitle() << "\n" << endl;
+			string status;
+			if (courses[x]->getOpen() == true)
+				status = true;
+			else 
+				status = false;
+			cout << "                                                                                                 " << left << setw(10) << courses[x]->getSectionID() << " " << setw(11) << courses[x]->getCourse() << " " << setw(30) << courses[x]->getTitle() << " " << setw(4) << courses[x]->getDays() << " " << setw(20) << courses[x]->getTime() << " " << setw(3) << courses[x]->getCap() << " " << setw(8) << courses[x]->getEnrolled() << " " << setw(6) << status << endl;
+			//cout << "                                                                                                 " << setw(10) << courses[x]->getSectionID() << " " << setw(15) << courses[x]->getCourse() << " " << setw(20) << courses[x]->getTitle() << endl;
 		}
 	}
 	
@@ -81,8 +87,6 @@ bool studentType::equals(studentType comparator) {
 void studentType::addCourse(courseType *course1) {
 	if (course1->addStudent() == true) {
 		if (numCourses <= 1) {
-			//!!! Is this a deep or shallow copy? !!!
-			//courses[numCourses] = new courseType(*course1);
 			courses[numCourses] = course1;
 			numCourses++;
 		} else {

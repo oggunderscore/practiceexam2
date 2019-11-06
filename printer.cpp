@@ -7,6 +7,8 @@
 
 void printAll(personType *persons[], studentType *students[], professorType *professors[], courseType *courses[]) {
 	clear();
+	
+	cout << "Name                         Address                                  Height DOB        Gender\n----------------------------------------------------------------------------------------------\n" << endl;
 	if (personType::personCount != 0) {
 		printAllPeople(persons);
 	}
@@ -25,19 +27,13 @@ void printAll(personType *persons[], studentType *students[], professorType *pro
 }
 
 void printAllPeople(personType *persons[]) {
-	
-	cout << "Name                         Address                                  Height DOB        Gender\n----------------------------------------------------------------------------------------------\n" << endl;
-
 	for (int x = 0; x < personType::personCount; x++) {
 		persons[x]->print();
 		cout << endl;
 	}
-	
 }
 
 void printAllStudents(studentType *students[]) {
-	
-	
 	for (int x = 0; x < studentType::studentCount; x++) {
 		cout << "\n                                                                                                 ID       Classification       GPA    Course Load\n                                                                                                 ------------------------------------------------" << endl; 
 		students[x]->print();
@@ -45,14 +41,9 @@ void printAllStudents(studentType *students[]) {
 }
 
 void printAllProfessors(professorType *professors[], courseType *courses[]) {
-	
-	
 	for (int x = 0; x < professorType::professorCount; x++) {
 		cout << "\n                                                                                                 ID       Department             Degree\n                                                                                                 ------------------------------------------------" << endl; 
 		professors[x]->print();
-		for (int y = 0; y < professors[x]->getNumCourses(); y++) {
-			professors[x]->printStudentsInCourse(courses[y]);
-		}
 	}
 }
 

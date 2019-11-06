@@ -5,7 +5,45 @@
 #include "professorType.h"
 #include "collegeType.h"
 
-//get me out
+//--------------------------------------------------------//
+// File Name: driver.cpp
+// Project name: Exam 2
+//--------------------------------------------------------
+// Creators name and email: Kevin Nguyen, oggunderscore@gmail.com
+// Creation Date: 10/30/19
+// Date of Last Modification: 11/5/19
+//--------------------------------------------------------//
+// Purpose: This project represents my skill into using 
+// pointers to determine a database of people, students
+// professors, courses, and other information to be organized
+// and represented through various functions.
+//--------------------------------------------------------//
+// Algorithm: 
+// After gathering inputted data, follow through exam 
+// desired functions as well as present the data 
+// appropriately.
+//--------------------------------------------------------//
+//                Data Dictionary
+// Constants
+// 
+// Name           Data Type             Initial Value
+// ----------     --------------        ------------------//
+// N/A
+// 
+// Variables
+// 
+// Name           Data Type             Initial Value
+// ----------     --------------        ------------------//
+// totalPeopleCount int                 0   
+// c              char                  null
+// validInput     bool                  false
+// exitMain       bool                  false    
+// courses        courseType*[]         null
+// persons        personType*[]         null 
+// students       studentType*[]        null
+// professors     professorType*[]      null
+// college        collegeType*[]        null
+//--------------------------------------------------------//
 
 int main() {
 	

@@ -44,17 +44,19 @@ void assignCourseToStudent(courseType *courses[], studentType *students[], colle
 		int c;
 		int selectedCourseIndex, selectedStudentIndex;
 		
-		printCourseAssignmentMenu(courses);
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');
-		cin >> c;
 		
-		selectedCourseIndex = c;
 		
 		printStudentAssignmentMenu(students);
 		
 		cin >> c;
 		
 		selectedStudentIndex = c;
+		
+		printCourseAssignmentMenu(courses);
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cin >> c;
+		
+		selectedCourseIndex = c;
 		
 		if (courses[selectedCourseIndex]->getCap() - courses[selectedCourseIndex]->getEnrolled() > 0 && courses[selectedCourseIndex]->getOpen() == true) {
 			courses[selectedCourseIndex]->addStudentToCourse(students[selectedStudentIndex]);
@@ -88,17 +90,19 @@ void assignProfessorToCourse(courseType *courses[], professorType *professors[],
 		int c;
 		int selectedCourseIndex, selectedProfessorIndex;
 		
-		printCourseAssignmentMenu(courses);
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');
-		cin >> c;
 		
-		selectedCourseIndex = c;
 		
 		printProfessorAssignmentMenu(professors);
 		
 		cin >> c;
 		
 		selectedProfessorIndex = c;
+		
+		printCourseAssignmentMenu(courses);
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cin >> c;
+		
+		selectedCourseIndex = c;
 				
 		professors[selectedProfessorIndex]->addCourse(courses[selectedCourseIndex]); // woo...
 		
